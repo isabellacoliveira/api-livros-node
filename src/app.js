@@ -1,4 +1,12 @@
 import express from "express";
+import db from "./config/dbConnect.js"
+
+// pegamos o erro que vem do banco 
+db.on("error", console.log.bind(console, "Erro referente ao banco"))
+// abre conexao com o banco 
+db.once("open", () => {
+  console.log(`Conexao com o banco feita com sucesso`)
+})
 
 const app = express();
 
@@ -23,11 +31,8 @@ app.post('/livros', (req, res) => {
   res.status(201).send('Livro cadastrado com sucesso')
 })
 
-// localizar a posicao do array que possui aquele id especifico
 app.put('/livros/:id', (req, res) => {
-  // aqui vai estar o id que passamos na requisicao 
    let index = buscaLivro(req.params.id)
-  // vai receber o corpo da requisicao
    livros[index].titulo = req.body.titulo
    res.json(livros)
 })
@@ -42,11 +47,8 @@ app.get('/livros/:id', (req, res) => {
 })
 
 app.delete('/livros/:id', (req, res) => {
-  //  let index = buscaLivro(req.params.id) ao inves de fazer isso 
-  // podemos fazer 
   let { id } = req.params
   let index = buscaLivro(id)
-  // posicao de inicio e quantos elementos vamos excluir 
   livros.slice(index, 1)
    res.send(`livro ${index} removido com sucesso`)
 })
