@@ -5,6 +5,8 @@ const router = express.Router();
 
 router
   .get("/livros", LivroController.listarLivros)
+  // query params 
+  .get("/livros/busca", LivroController.listarLivroPorEditora)
   .get("/livros/:id", LivroController.listarLivroPorId)
   .post("/livros", LivroController.cadastrarLivro)
   .put("/livros/:id", LivroController.atualizarLivro)
