@@ -1,30 +1,19 @@
 import express from "express";
 import db from "./config/dbConnect.js"
+import livros from "./models/Livro.js";
+import routes from "./routes/index.js";
 
-// pegamos o erro que vem do banco 
 db.on("error", console.log.bind(console, "Erro referente ao banco"))
-// abre conexao com o banco 
 db.once("open", () => {
   console.log(`Conexao com o banco feita com sucesso`)
 })
 
 const app = express();
 
-// para ele reconhecer a requisicao POST
 app.use(express.json())
 
-const livros = [
-  {id: 1, titulo: "Senhor dos Aneis"},
-  {id: 2, titulo: "O Hobbit"}
-]
-
-app.get('/', (req, res) => {
-  res.status(200).send('Curso de Node');
-}) 
-
-app.get('/livros', (req, res) => {
-  res.status(200).json(livros)
-})
+// para obter as rotas
+routes(app)
 
 app.post('/livros', (req, res) => {
   livros.push(req.body)
