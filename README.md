@@ -49,6 +49,7 @@ Deletar livro por id
 
 ### POST 
 Aqui podemos cadastrar um novo autor
+
 ![POST1](./src/assets/gif11.gif)
 
 ### GET
