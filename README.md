@@ -16,6 +16,7 @@ agora clique em "connect", "connect your application", e pegue o link retornado,
 mudando o nome do perfil cadastrado e a senha para o perfil que você cadastrou em seu banco. Para rodar o projeto, digite: 
                                                     npm run dev 
                                                 ![OBS](./src/assets/gif1.gif)
+                                                
 que é um script configurado para iniciar a compilação do projeto no package.json.  
 
 # LIVROS 
@@ -52,18 +53,22 @@ Aqui podemos cadastrar um novo autor
 
 ### GET
 Buscar pela lista de autores cadastrados
+
 ![GET1](./src/assets/gif7.gif)
 
 ### GET ID  
 Buscar um autor por id
+
 ![GETID1](./src/assets/gif8.gif)
 
 ### PUT 
 Atualizar autor por id
+
 ![PUT1](./src/assets/gif9.gif)
 
 ### DELETE 
 Deletar autor por id
+
 ![DELETE1](./src/assets/gif10.gif)
 
 # RELACOES 
